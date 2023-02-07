@@ -8,18 +8,29 @@ import turtle as t
 #TODO - detect collision with wall
 #TODO - detect collision with tail
 
+
+
+
+
 screen = t.Screen()
 screen.setup(width=600,height=600)
 screen.bgcolor("black")
 screen.title("Snake Game")
 
-x_pos = 0
-snake = t.Turtle()
-snake.shapesize(1,-3,1)
-snake.color("white")
-snake.shape("square")
-snake.setx(x_pos)
-x_pos-=20
+#make snake
+def make_snake():
+    x_pos = -30
+    snake.shapesize(1,-3,1)
+    snake.color("white")
+    snake.shape("square")
+    snake.goto(-30,0)
 
+game_is_on = True
+snake = t.Turtle()
+snake.penup()
+
+make_snake()
+while game_is_on:
+    snake.forward(20)
 
 screen.exitonclick()
