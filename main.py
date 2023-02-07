@@ -1,57 +1,61 @@
+import time
 import turtle as t
 
 
-#TODO - move the snake
-#TODO - control the snake
-#TODO - detect collision with food
-#TODO - create scoreboard
-#TODO - detect collision with wall
-#TODO - detect collision with tail
+# TODO - control the snake
+# TODO - detect collision with food
+# TODO - create scoreboard
+# TODO - detect collision with wall
+# TODO - detect collision with tail
 
 
 def move_foward():
-    for x in snake:
-        x.forward(20)
+    for segment in snake:
+        segment.forward(20)
+
+
 def turn_right():
-    for x in snake:
-        x.setheading(270)
+    for segment in snake:
+        segment.setheading(270)
+
+
 def turn_left():
-    for x in snake:
-        x.setheading(90)
+    for segment in snake:
+        segment.setheading(90)
 
 
 screen = t.Screen()
-screen.setup(width=600,height=600)
+screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("Snake Game")
+screen.tracer(0)
 
-#make snake
-def make_snake(i,x_pos):
-    # snake.shapesize(1,-3,1)
-    x.penup()
+
+# make snake
+def make_snake(i, pos):
+    i.penup()
     i.color("white")
     i.shape("square")
-    i.goto(x_pos,0)
+    i.goto(pos)
+
 
 game_is_on = True
 snake = []
-x_position = 0
+start_coord = [(0, 0), (-20, 0), (-40, 0)]
+coord_index = 0
 for x in range(3):
     x = t.Turtle()
-    make_snake(x,x_position)
+    make_snake(x, start_coord[coord_index])
+    coord_index += 1
     snake.append(x)
-    x_position-=20
 
-screen.onkeypress(move_foward, 'w')
-screen.onkeypress(turn_left, 'a')
-screen.onkeypress(turn_right, 'd')
-
-screen.listen()
-
-# while game_is_on:
-# #     # snake.forward(20)
-#     screen.onkeypress(move_foward, 'w')
-#     screen.listen()
-
+while game_is_on:
+    screen.update()
+    time.sleep(.1)
+    for seg_num in range(len(snake) - 1, 0, -1):
+        new_x = snake[seg_num - 1].xcor()
+        new_y = snake[seg_num - 1].ycor()
+        snake[seg_num].goto(new_x, new_y)
+    snake[0].forward(20)
 
 screen.exitonclick()
