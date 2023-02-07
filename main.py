@@ -1,6 +1,6 @@
 import turtle as t
 
-#TODO - create a snake body
+
 #TODO - move the snake
 #TODO - control the snake
 #TODO - detect collision with food
@@ -14,14 +14,12 @@ screen.bgcolor("black")
 screen.title("Snake Game")
 
 x_pos = 0
-snake = []
-for x in range(3):
-    x = t.Turtle()
-    x.color("white")
-    x.shape("square")
-    x.setx(x_pos)
-    snake.append(x)
-    x_pos-=20
+snake = t.Turtle()
+snake.shapesize(1,-3,1)
+snake.color("white")
+snake.shape("square")
+snake.setx(x_pos)
+x_pos-=20
 
 
 screen.exitonclick()
