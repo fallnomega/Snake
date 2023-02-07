@@ -1,16 +1,27 @@
-# This is a sample Python script.
+import turtle as t
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+#TODO - create a snake body
+#TODO - move the snake
+#TODO - control the snake
+#TODO - detect collision with food
+#TODO - create scoreboard
+#TODO - detect collision with wall
+#TODO - detect collision with tail
+
+screen = t.Screen()
+screen.setup(width=600,height=600)
+screen.bgcolor("black")
+screen.title("Snake Game")
+
+x_pos = 0
+snake = []
+for x in range(3):
+    x = t.Turtle()
+    x.color("white")
+    x.shape("square")
+    x.setx(x_pos)
+    snake.append(x)
+    x_pos-=20
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+screen.exitonclick()
