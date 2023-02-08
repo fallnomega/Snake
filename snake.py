@@ -8,17 +8,11 @@ class Snake:
     def __init__(self):
         self.segments = []
         self.create_snake()
+        self.head = self.segments[0]
 
     def create_snake(self):
         for position in STARTING_COORDINATES:
-            segment = t.Turtle()
-            segment.penup()
-            segment.color("white")
-            segment.shape("square")
-            segment.goto(position)
-            self.segments.append(segment)
-            self.head = self.segments[0]
-
+            self.add_snake(position)
 
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
@@ -55,10 +49,15 @@ class Snake:
             self.head.setheading(0)
         return
 
-    def extend_snake(self):
+    def add_snake(self,position):
         new_segment = t.Turtle()
         new_segment.penup()
         new_segment.color("white")
         new_segment.shape("square")
+        new_segment.goto(position)
         self.segments.append(new_segment)
-        # new_segment.goto(position)
+
+    def extend(self):
+        self.add_snake(self.segments[-1].position())
+
+
