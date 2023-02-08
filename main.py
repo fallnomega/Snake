@@ -47,10 +47,11 @@ while game_is_on:
     # detect collision with tail
     # if player.head collides with any segment of the tail, trigger GAMEOVER
 
-    for segment in player.segments:
+    for segment in player.segments[1:len(player.segments)-1]:
         if segment == player.head:
             pass
         elif player.head.distance(segment) < 10:
             scoreboard.game_over()
+            game_is_on = False
 
 screen.exitonclick()
