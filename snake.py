@@ -17,44 +17,46 @@ class Snake:
             segment.shape("square")
             segment.goto(position)
             self.segments.append(segment)
-            # self.head = self.segments[0] -- potential replacement for the move functions below
-            # and self.segments[0].forward(MOVE_DISTANCE)
+            #potential replacement for the move functions below
+            #and self.segments[0].forward(MOVE_DISTANCE)
             # from those to self.head.forward(MOVE_DISTANCE)
+            self.head = self.segments[0]
+
 
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
             self.segments[seg_num].goto(new_x, new_y)
-        self.segments[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
 
     def move_up(self):
-        if self.segments[0].heading() == 270:
+        if self.head.heading() == 270:
             return
         else:
-            self.segments[0].setheading(90)
+            self.head.setheading(90)
         # self.segments[0].forward(MOVE_DISTANCE)
         return
 
     def move_down(self):
-        if self.segments[0].heading() == 90:
+        if self.head.heading() == 90:
             return
         else:
-            self.segments[0].setheading(270)
+            self.head.setheading(270)
         return
 
     def turn_left(self):
-        if self.segments[0].heading() == 0:
+        if self.head.heading() == 0:
             return
         else:
-            self.segments[0].setheading(180)
+            self.head.setheading(180)
         return
 
     def turn_right(self):
-        if self.segments[0].heading() == 180:
+        if self.head.heading() == 180:
             return
         else:
-            self.segments[0].setheading(0)
+            self.head.setheading(0)
         return
 
 
