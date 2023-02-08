@@ -10,6 +10,6 @@ class scoreboard(Turtle):
         self.write(f"Score: {self.score} ",font=('Arial', 16, 'normal'))
 
     def add_to_score(self):
-        self.score+=10
+        self.score+=1
         self.clear()
         self.write(f"Score: {self.score} ", font=('Arial', 16, 'normal'))
