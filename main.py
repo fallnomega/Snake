@@ -33,10 +33,11 @@ while game_is_on:
     time.sleep(.1)
     player.move()
 
-    #detect collision from wall
+    #detect collision from food
     if player.head.distance(food) <  15:
         scoreboard.add_to_score()
         food.refresh()
+        player.extend_snake()
 
     #detect wall collision
     if player.head.xcor() > 280 or player.head.xcor() < -280 or player.head.ycor() > 280 or player.head.ycor() < -280 :

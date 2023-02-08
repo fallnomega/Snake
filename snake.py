@@ -32,7 +32,6 @@ class Snake:
             return
         else:
             self.head.setheading(90)
-        # self.segments[0].forward(MOVE_DISTANCE)
         return
 
     def move_down(self):
@@ -56,16 +55,10 @@ class Snake:
             self.head.setheading(0)
         return
 
-#
-# class SnakeSegment(Snake):
-#     def __init__(self):
-#         super().__init__()
-#         new_segement = t.Turtle()
-#         new_segement.penup()
-#         new_segement.color("white")
-#         new_segement.shape("square")
-#         new_segement.goto(0, 0)
-#         self.segments.append(new_segement)
-#
-#         # new_segement.goto(position)
-#         # self.segments.append(segment)
+    def extend_snake(self):
+        new_segment = t.Turtle()
+        new_segment.penup()
+        new_segment.color("white")
+        new_segment.shape("square")
+        self.segments.append(new_segment)
+        # new_segment.goto(position)
