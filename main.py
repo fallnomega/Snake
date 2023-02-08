@@ -31,4 +31,5 @@ while game_is_on:
     time.sleep(.1)
     player.move()
 
+
 screen.exitonclick()

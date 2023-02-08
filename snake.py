@@ -56,3 +56,17 @@ class Snake:
         else:
             self.segments[0].setheading(0)
         return
+
+
+class SnakeSegment(Snake):
+    def __init__(self):
+        super().__init__()
+        new_segement = t.Turtle()
+        new_segement.penup()
+        new_segement.color("white")
+        new_segement.shape("square")
+        new_segement.goto(0,0)
+        self.segments.append(new_segement)
+
+        # new_segement.goto(position)
+        # self.segments.append(segment)
