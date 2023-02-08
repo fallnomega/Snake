@@ -17,9 +17,6 @@ class Snake:
             segment.shape("square")
             segment.goto(position)
             self.segments.append(segment)
-            #potential replacement for the move functions below
-            #and self.segments[0].forward(MOVE_DISTANCE)
-            # from those to self.head.forward(MOVE_DISTANCE)
             self.head = self.segments[0]
 
 
@@ -59,16 +56,16 @@ class Snake:
             self.head.setheading(0)
         return
 
-
-class SnakeSegment(Snake):
-    def __init__(self):
-        super().__init__()
-        new_segement = t.Turtle()
-        new_segement.penup()
-        new_segement.color("white")
-        new_segement.shape("square")
-        new_segement.goto(0, 0)
-        self.segments.append(new_segement)
-
-        # new_segement.goto(position)
-        # self.segments.append(segment)
+#
+# class SnakeSegment(Snake):
+#     def __init__(self):
+#         super().__init__()
+#         new_segement = t.Turtle()
+#         new_segement.penup()
+#         new_segement.color("white")
+#         new_segement.shape("square")
+#         new_segement.goto(0, 0)
+#         self.segments.append(new_segement)
+#
+#         # new_segement.goto(position)
+#         # self.segments.append(segment)

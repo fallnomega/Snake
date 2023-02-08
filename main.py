@@ -38,4 +38,11 @@ while game_is_on:
         scoreboard.add_to_score()
         food.refresh()
 
+    #detect wall collision
+    if player.head.xcor() > 280 or player.head.xcor() < -280 or player.head.ycor() > 280 or player.head.ycor() < -280 :
+        game_is_on = False
+        scoreboard.game_over()
+
+
+
 screen.exitonclick()
