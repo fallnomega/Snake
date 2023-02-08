@@ -29,7 +29,7 @@ class Snake:
         self.segments[0].forward(MOVE_DISTANCE)
 
     def move_up(self):
-        if self.segments[0].heading() ==270:
+        if self.segments[0].heading() == 270:
             return
         else:
             self.segments[0].setheading(90)
@@ -65,7 +65,7 @@ class SnakeSegment(Snake):
         new_segement.penup()
         new_segement.color("white")
         new_segement.shape("square")
-        new_segement.goto(0,0)
+        new_segement.goto(0, 0)
         self.segments.append(new_segement)
 
         # new_segement.goto(position)
