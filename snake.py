@@ -49,7 +49,7 @@ class Snake:
             self.head.setheading(0)
         return
 
-    def add_snake(self,position):
+    def add_snake(self, position):
         new_segment = t.Turtle()
         new_segment.penup()
         new_segment.color("white")
@@ -59,5 +59,3 @@ class Snake:
 
     def extend(self):
         self.add_snake(self.segments[-1].position())
-
-
