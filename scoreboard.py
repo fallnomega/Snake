@@ -10,24 +10,25 @@ class scoreboard(Turtle):
         self.penup()
         self.hideturtle()
         self.color("white")
-        self.write(f"Score: {self.score} ", font=('Arial', 16, 'normal'))
+        self.write(f"Score: {self.score} High Score: {self.highscore}", font=('Arial', 16, 'normal'))
 
     def add_to_score(self):
         self.score += 1
         self.update_board()
 
-
     def game_over(self):
         self.goto(0, 0)
-        self.write(f"GAME OVER", align="center", font=('Arial', 32, 'normal'))
+        # self.update_board()
+        self.write(f"GAME OVER\nScore: {self.score} High Score: {self.highscore}", align="center", font=('Arial', 32, 'normal'))
 
     def reset_scoreboard(self):
         if self.score > self.highscore:
             self.highscore = self.score
             self.score = 0
-            self.clear()
+            self.update_board()
+
     def update_board(self):
+        if self.score > self.highscore:
+            self.highscore = self.score
         self.clear()
-        self.write(f"Score: {self.score} ", font=('Arial', 16, 'normal'))
-
-
+        self.write(f"Score: {self.score} High Score: {self.highscore} ", font=('Arial', 16, 'normal'))
