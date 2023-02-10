@@ -33,14 +33,19 @@ class scoreboard(Turtle):
     def update_board(self):
         if self.score > self.highscore:
             self.highscore = self.score
+            with open("high_score_file.txt",'w') as file:
+                x = str(self.highscore)
+                file.write(x)
         self.clear()
         self.write(f"Score: {self.score} High Score: {self.highscore} ", font=('Arial', 16, 'normal'))
 
     def open_score_file(self):
-        file = open("high_score_file.txt")
+        file = open("high_score_file.txt",'r')
         contents = file.read()
-        self.highscore = contents
+        print(contents)
         file.close()
+        x = int(contents)
+        return x
 
 
 
