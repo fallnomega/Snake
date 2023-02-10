@@ -19,8 +19,7 @@ class scoreboard(Turtle):
     def game_over(self):
         self.goto(0, 0)
         # self.update_board()
-        self.write(f"GAME OVER\nScore: {self.score} High Score: {self.highscore}", align="center",
-                   font=('Arial', 32, 'normal'))
+        self.write(f"GAME OVER\nScore: {self.score} High Score: {self.highscore}", align="center", font=('Arial', 32, 'normal'))
 
     def reset_scoreboard(self):
         if self.score > self.highscore:
@@ -34,9 +33,10 @@ class scoreboard(Turtle):
     def update_board(self):
         if self.score > self.highscore:
             self.highscore = self.score
-            with open("high_score_file.txt", 'w') as file:
+            with open("high_score_file.txt",'w') as file:
                 x = str(self.highscore)
-                file.write(x)
+                file.write(f"{x}")
+                file.close()
         self.clear()
         self.write(f"Score: {self.score} High Score: {self.highscore} ", font=('Arial', 16, 'normal'))
 
@@ -47,3 +47,6 @@ class scoreboard(Turtle):
         file.close()
         x = int(contents)
         return x
+
+
+
