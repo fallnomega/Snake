@@ -4,8 +4,6 @@ import snake
 from food import Food
 from scoreboard import scoreboard
 
-
-
 # TODO - control the snake
 # TODO - detect collision with food
 # TODO - create scoreboard
@@ -35,7 +33,6 @@ while game_is_on:
     time.sleep(.1)
     player.move()
 
-
     # detect collision from food
     if player.head.distance(food) < 15:
         scoreboard.add_to_score()
@@ -50,7 +47,6 @@ while game_is_on:
         player.reset()
         # scoreboard.game_over()
 
-
     # detect collision with tail
     # if player.head collides with any segment of the tail, trigger GAMEOVER
     for segment in player.segments[1:]:
@@ -59,6 +55,5 @@ while game_is_on:
             scoreboard.reset_scoreboard()
             player.reset()
             # scoreboard.game_over()
-
 
 screen.exitonclick()
