@@ -45,18 +45,20 @@ while game_is_on:
 
     # detect wall collision
     if player.head.xcor() > 280 or player.head.xcor() < -280 or player.head.ycor() > 280 or player.head.ycor() < -280:
-        game_is_on = False
+        # game_is_on = False
         scoreboard.reset_scoreboard()
-        scoreboard.game_over()
+        player.reset()
+        # scoreboard.game_over()
+
 
     # detect collision with tail
     # if player.head collides with any segment of the tail, trigger GAMEOVER
-
     for segment in player.segments[1:]:
         if player.head.distance(segment) < 10:
-            game_is_on = False
+            # game_is_on = False
             scoreboard.reset_scoreboard()
-            scoreboard.game_over()
+            player.reset()
+            # scoreboard.game_over()
 
 
 screen.exitonclick()
